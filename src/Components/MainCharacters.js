@@ -101,7 +101,7 @@ export default function MainCharacters(){
               }}
               onClick={flipCard2}
             >
-              Character Name:Persephone
+              Character Name: Persephone
               <br />
               Role: She is the female protagonist of Lore Olympus.
             </div>

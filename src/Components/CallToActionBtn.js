@@ -18,6 +18,8 @@ export default function CallToActionBtn(){
         >
           <Link
             href="https://animemangatoon.com/lore-olympus-webtoon-overview/"
+            target="_blank"
+            rel="noopener noreferrer"
             color="inherit"
             underline="hover"
           >
