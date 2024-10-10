@@ -2,13 +2,16 @@ import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
-import IconButton from "@mui/material/IconButton";
-import MenuIcon from "@mui/icons-material/Menu";
-import Button from "@mui/material/Button";
+import { useTheme } from "@mui/material/styles";
+import useMediaQuery from "@mui/material/useMediaQuery";
+import Link from "@mui/material/Link";
+import MenuComponent from "./MenuComponent";
 
 const navItems = ["Home", "About the Webtoon", "Main Characters"];
 
 export default function NavBar() {
+   const theme = useTheme();
+   const matches = useMediaQuery(theme.breakpoints.down("md"));
 
   return (
     <Box sx={{ flexGrow: 1 }}>
@@ -18,45 +21,94 @@ export default function NavBar() {
         style={{ display: "flex", color: "#fff", background: "#FD7272" }}
       >
         <Toolbar>
-          <IconButton
-            size="large"
-            edge="start"
-            //color="inherit"
-            aria-label="menu"
-            sx={{ mr: 2, color: "#fff" }}
-          >
-            <MenuIcon />
-          </IconButton>
+
+          <MenuComponent />
+
           <Typography
             variant="h6"
             color="inherit"
             component="div"
-            // style={{ fontFamily: "Lora" }}
+            style={{ fontFamily: "Poppins" }}
           >
             Lore Olympus Webtoon
           </Typography>
 
-          <div
-            style={{ width: "60%", display: "flex", justifyContent: "center" }}
-          >
-            {navItems.map((item) => (
-              <Button
-                key={item}
+          {matches ? (
+            <></>
+          ) : (
+            <div
+              style={{
+                width: "60%",
+                display: "flex",
+                justifyContent: "center",
+              }}
+            >
+              {/* {navItems.map((item) => (
+                <Button
+                  key={item}
+                  style={{
+                    color: "inherit",
+                    fontWeight: 500,
+                    fontSize: 18,
+                    textTransform: "capitalize",
+                    fontFamily: "Poppins",
+                    //   display:'flex',
+                    //   justifyContent:"space-between"
+                  }}
+                >
+                  {item}
+                </Button> 
+
+              ))} */}
+              <Link
+                href="#home"
+                component="button"
+              
+                underline="hover"
+               
                 style={{
                   color: "inherit",
                   fontWeight: 500,
                   fontSize: 18,
                   textTransform: "capitalize",
-                //   fontFamily: "Lora",
-                  //   display:'flex',
-                  //   justifyContent:"space-between"
+                  fontFamily: "Poppins",
+                  marginRight: 10,
                 }}
               >
-                {item}
-              </Button>
-            ))}
-           
-          </div>
+                Home
+              </Link>
+
+              <Link
+                href="#readmore"
+                underline="hover"
+               
+                style={{
+                  color: "inherit",
+                  fontWeight: 500,
+                  fontSize: 18,
+                  textTransform: "capitalize",
+                  fontFamily: "Poppins",
+                  marginRight: 10,
+                }}
+              >
+                Read More
+              </Link>
+
+              <Link
+                href="#maincharacters"
+                underline="hover"
+                style={{
+                  color: "inherit",
+                  fontWeight: 500,
+                  fontSize: 18,
+                  textTransform: "capitalize",
+                  fontFamily: "Poppins",
+                }}
+              >
+                Main Characters
+              </Link>
+            </div>
+          )}
         </Toolbar>
       </AppBar>
     </Box>

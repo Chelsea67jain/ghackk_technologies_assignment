@@ -1,14 +1,19 @@
 import * as React from "react";
 import Typewriter from 'typewriter-effect';
+import { useTheme } from "@mui/material/styles";
+import useMediaQuery from "@mui/material/useMediaQuery";
 
 export default function HeroSection() {
+   const theme = useTheme();
+   const matches = useMediaQuery(theme.breakpoints.down("md"));
+
   return (
     <div>
       <img
         src="/lore olympus.jpg"
         style={{ width: "100%", position: "relative" }}
       />
-      <div
+     {matches?<></>: <div
         style={{
           width: 320,
           color: "#fff",
@@ -38,6 +43,7 @@ export default function HeroSection() {
           />
         </div>
       </div>
+}
     </div>
   );
 }
